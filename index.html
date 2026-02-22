@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perpustakaan Sekolah</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2>📚 PerpusKu</h2>
+        <button onclick="showPage('dashboard')" class="nav-btn">🏠 Dashboard</button>
+        <button onclick="showPage('buku')" class="nav-btn">📖 Koleksi Buku</button>
+        <button onclick="showPage('pinjam')" class="nav-btn">📝 Pencatatan Pinjaman</button>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <header class="header">
+            <h1>Perpustakaan SMK NEGERI 10 SEMARANG</h1>
+        </header>
+
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="page active">
+
+    <h2 class="welcome-title">Selamat Datang di Perpustakaan Digital 📚</h2>
+    <p class="welcome-sub">
+        Sistem ini membantu pencatatan buku dan peminjaman agar lebih modern.
+    </p>
+
+    <div class="dashboard-cards">
+        <div class="card">
+            <h3>📖 Total Buku</h3>
+            <p id="totalBuku">20</p>
+        </div>
+
+        <div class="card">
+            <h3>✨ Buku Favorit</h3>
+            <p>Dilan 1990</p>
+        </div>
+    </div>
+
+<!-- JAM & TANGGAL -->
+<div class="top-info">
+    <div id="tanggalWaktu"></div>
+</div>
+
+
+<!-- REKOMENDASI BUKU -->
+<h3>📚 Rekomendasi Minggu Ini</h3>
+<div class="rekomendasi">
+    <div class="mini-book">
+        <img src="https://upload.wikimedia.org/wikipedia/id/8/8e/Laskar_pelangi_sampul.jpg">
+        <p>Laskar Pelangi</p>
+    </div>
+
+    <div class="mini-book">
+        <img src="https://cdn.gramedia.com/uploads/items/9786027870864_dilan-1990.jpg">
+        <p>Dilan 1990</p>
+    </div>
+
+    <div class="mini-book">
+        <img src="https://cdn.gramedia.com/uploads/items/bumi-manusia-edit.jpg">
+        <p>Bumi Manusia</p>
+    </div>
+</div>
+
+<!-- NOTIFIKASI -->
+<div class="notif-box">
+    <p id="notifPinjam">📢 Belum ada data peminjaman</p>
+</div>
+
+<!-- TARGET PINJAMAN -->
+<h3>📊 Target Peminjaman Bulan Ini</h3>
+<div class="progress-container">
+    <div id="progressBar" class="progress-bar"></div>
+</div>
+<p id="progressText"></p>
+
+<!-- QUOTES -->
+<div class="quote-box">
+    <p id="quoteText"></p>
+</div>
+
+</section>
+
+        <!-- KOLEKSI BUKU -->
+        <section id="buku" class="page">
+            <h2>Rak Buku Digital</h2>
+            <div id="bookContainer" class="book-grid"></div>
+        </section>
+
+        <!-- PINJAMAN -->
+        <section id="pinjam" class="page">
+            <h2>Pencatatan Peminjaman Buku</h2>
+            <div class="form-box">
+                <input type="text" id="nama" placeholder="Nama Siswa">
+                <input type="text" id="nisn" placeholder="NISN">
+                <input type="text" id="kelas" placeholder="Kelas">
+                <input type="text" id="bukuDipinjam" placeholder="Judul Buku">
+                <button onclick="tambahPinjam()">Simpan</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>NISN</th>
+                        <th>Kelas</th>
+                        <th>Buku</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelPinjam"></tbody>
+            </table>
+        </section>
+
+        <!-- DETAIL BUKU (FULL DI MAIN) -->
+        <section id="detail" class="page">
+            <div class="detail-box">
+                <h2 id="detailJudul"></h2>
+                <p><strong>Penulis:</strong> <span id="detailPenulis"></span></p>
+                <h3>Kesimpulan Isi Buku</h3>
+                <p id="detailIsi"></p>
+                <button onclick="showPage('buku')" class="detail-btn">
+                    ⬅ Kembali ke Rak Buku
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
